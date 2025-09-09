@@ -111,7 +111,7 @@ O cadastro das chaves Pix pode ser feito através do aplicativo mobille da Efí,
 ### **Cadastrar chave Pix através da API:**
 O endpoint utilizado para criar uma chave Pix aleatória (evp), é o `POST /v2/gn/evp` ([Criar chave evp](https://dev.sejaefi.com.br/docs/api-pix-endpoints#section-criar-chave-evp)). Um detalhe é que, através deste endpoint é realizado o registro somente de chaves Pix do tipo aleatória.
 
-Para consumí-lo, basta executar o exemplo  `/examples/exclusive/key/pixCreateEvp.go` da nossa SDK. A requisição enviada para esse endpoint não precisa de um body. 
+Para consumí-lo, basta executar o exemplo  `/examples/exclusives/key/pixCreateEvp.go` da nossa SDK. A requisição enviada para esse endpoint não precisa de um body. 
 
 A resposta de exemplo abaixo representa Sucesso (201), apresentando a chave Pix registrada.
 ```json
