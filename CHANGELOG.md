@@ -1,3 +1,9 @@
+# 3.0.1 
+
+- Added: new endpoints (automatic pix)
+- Updated: location (creation new folder locRec)
+- Fix: request (add Content-Type configuration: Now, PATCH type requests with body)
+
 # 3.0.0
 
 - Added: new endpoints and apis
