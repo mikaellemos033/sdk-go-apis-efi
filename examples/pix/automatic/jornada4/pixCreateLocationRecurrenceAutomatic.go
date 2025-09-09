@@ -2,18 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
+	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	const id = "423"
-
-	res, err := efi.PixDetailLocation(id) 
+	res, err := efi.PixCreateLocationRecurrenceAutomatic(nil)
 
 	if err != nil {
 		fmt.Println(err)

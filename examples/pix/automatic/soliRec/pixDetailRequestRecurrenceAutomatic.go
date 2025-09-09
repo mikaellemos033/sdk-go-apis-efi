@@ -2,22 +2,24 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+
 	"github.com/efipay/sdk-go-apis-efi/examples/configs"
+	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	const id = "423"
+	const idSolicRec = "SC090893562025090205c9cfd85fc"
 
-	res, err := efi.PixGenerateQRCode(id) 
+	res, err := efi.PixDetailRequestRecurrenceAutomatic(idSolicRec)
 
 	if err != nil {
 		fmt.Println(err)
 	} else {
 		fmt.Println(res)
 	}
+
 }
