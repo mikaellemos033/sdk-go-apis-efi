@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/efipay/sdk-go-apis-efi/examples/configs"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+	"github.com/mikaellemos033/sdk-go-apis-efi/examples/configs"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix"
 )
 
 func main() {
@@ -17,7 +17,6 @@ func main() {
 		"calendario": map[string]interface{}{
 
 			"dataExpiracaoSolicitacao": "2025-10-02T12:17:11.926Z",
-
 		},
 
 		"destinatario": map[string]interface{}{

@@ -1,12 +1,17 @@
 package pix
 
+import (
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix/request"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix/response"
+)
+
 type Requester interface {
-	Request(endpoint string, httpVerb string, requestParams map[string]string, body map[string]interface{}) (string, error)
-	RequestWithHeaders(endpoint string, httpVerb string, requestParams map[string]string, body map[string]interface{}, headers map[string]interface{}) (string, error)
+	Request(endpoint string, httpVerb string, requestParams map[string]string, body interface{}) (string, error)
+	RequestWithHeaders(endpoint string, httpVerb string, requestParams map[string]string, body interface{}, headers map[string]interface{}) (string, error)
 }
 
 type Pix interface {
-	CreateImmediateCharge(body map[string]interface{}) (string, error)
+	CreateImmediateCharge(body *request.PixImmediate) (*response.PixImmediate, error)
 	CreateCharge(txid string, body map[string]interface{}) (string, error)
 	UpdateCharge(txid string) (string, error)
 	DetailCharge(txid string) (string, error)

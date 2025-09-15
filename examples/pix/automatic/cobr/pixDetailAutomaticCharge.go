@@ -3,18 +3,18 @@ package main
 import (
 	"fmt"
 
-	"github.com/efipay/sdk-go-apis-efi/examples/configs"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
+	"github.com/mikaellemos033/sdk-go-apis-efi/examples/configs"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix"
 )
 
-func main(){
+func main() {
 
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
 	const txid = ""
 
-	res, err := efi.PixDetailAutomaticCharge(txid) 
+	res, err := efi.PixDetailAutomaticCharge(txid)
 
 	if err != nil {
 		fmt.Println(err)

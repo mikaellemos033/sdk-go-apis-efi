@@ -57,11 +57,11 @@ func authenticate(requester *requester) (bool, error) {
 	return true, nil
 }
 
-func (requester requester) Request(endpoint string, httpVerb string, requestParams map[string]string, body map[string]interface{}) (string, error) {
+func (requester requester) Request(endpoint string, httpVerb string, requestParams map[string]string, body interface{}) (string, error) {
 	return requester.RequestWithHeaders(endpoint, httpVerb, requestParams, body, nil)
 }
 
-func (requester requester) RequestWithHeaders(endpoint string, httpVerb string, requestParams map[string]string, body map[string]interface{}, headers map[string]interface{}) (string, error) {
+func (requester requester) RequestWithHeaders(endpoint string, httpVerb string, requestParams map[string]string, body interface{}, headers map[string]interface{}) (string, error) {
 	requestBody := new(bytes.Buffer)
 	json.NewEncoder(requestBody).Encode(body)
 

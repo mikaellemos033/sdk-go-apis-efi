@@ -2,24 +2,23 @@ package main
 
 import (
 	"fmt"
-	"github.com/efipay/sdk-go-apis-efi/src/efipay/pix"
-	"github.com/efipay/sdk-go-apis-efi/examples/configs"
+	"github.com/mikaellemos033/sdk-go-apis-efi/examples/configs"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix"
 )
 
-func main(){
-	
+func main() {
+
 	credentials := configs.Credentials
 	efi := pix.NewEfiPay(credentials)
 
-	
 	const e2eid = "E00416968202105211756Rh0iPsaJ1RK"
 	const id = "a29"
 
-	body := map[string]interface{} {		
+	body := map[string]interface{}{
 		"valor": "0.01",
 	}
 
-	res, err := efi.PixDevolution(e2eid,id,body) // no lugar do 1 coloque o charge_id certo
+	res, err := efi.PixDevolution(e2eid, id, body) // no lugar do 1 coloque o charge_id certo
 
 	if err != nil {
 		fmt.Println(err)
