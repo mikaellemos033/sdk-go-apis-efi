@@ -1,11 +1,23 @@
 package pix
 
+import (
+	"encoding/json"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix/request"
+	"github.com/mikaellemos033/sdk-go-apis-efi/src/efipay/pix/response"
+)
+
 type endpoints struct {
 	requester Requester
 }
 
-func (endpoints endpoints) CreateImmediateCharge(body map[string]interface{}) (string, error) {
-	return endpoints.requester.Request("/v2/cob", "POST", nil, body)
+func (endpoints endpoints) CreateImmediateCharge(req *request.PixImmediate) (*response.PixImmediate, error) {
+	immediatePix := new(response.PixImmediate)
+	resp, err := endpoints.requester.Request("/v2/cob", "POST", nil, req)
+
+	if err == nil {
+		_ = json.Unmarshal([]byte(resp), immediatePix)
+	}
+	return immediatePix, err
 }
 
 func (endpoints endpoints) CreateCharge(txid string, body map[string]interface{}) (string, error) {
