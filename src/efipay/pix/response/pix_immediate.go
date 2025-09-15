@@ -11,5 +11,5 @@ type PixImmediate struct {
 	PixURL    string         `json:"location,omitempty"`
 	PixCode   string         `json:"pixCopiaECola,omitempty"`
 	Location  Location       `json:"loc,omitempty"`
-	Infos     []model.Info   `json:"infosAdicionais"`
+	Infos     []model.Info   `json:"infoAdicionais"`
 }

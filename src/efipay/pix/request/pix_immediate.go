@@ -6,6 +6,6 @@ type PixImmediate struct {
 	Amount    model.Amount   `json:"valor,omitempty"`
 	Calendly  model.Calendly `json:"calendario,omitempty"`
 	PixKey    string         `json:"chave,omitempty"`
-	Infos     []model.Info   `json:"infosAdicionais,omitempty"`
+	Infos     []model.Info   `json:"infoAdicionais,omitempty"`
 	Requester string         `json:"solicitacaoPagador,omitempty"`
 }
