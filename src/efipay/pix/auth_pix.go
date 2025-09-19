@@ -12,7 +12,7 @@ import (
 
 type auth struct {
 	clientID, clientSecret string
-	CA, Key                string
+	CA, Key                []byte
 	sandbox                bool
 	timeout                int
 	netClient              interface {
@@ -28,8 +28,8 @@ type authResponseBody struct {
 	TokenType    string `json:"token_type"`
 }
 
-func newAuth(clientID string, clientSecret string, CA string, Key string, sandbox bool, timeout int) *auth {
-	var cert, erro = tls.LoadX509KeyPair(CA, Key)
+func newAuth(clientID string, clientSecret string, CA, Key []byte, sandbox bool, timeout int) *auth {
+	var cert, erro = tls.X509KeyPair(CA, Key)
 	if erro != nil {
 		println("Falha ao carregar par de chaves", erro)
 	}

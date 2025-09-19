@@ -26,9 +26,9 @@ type requester struct {
 	}
 }
 
-func newRequester(clientID string, clientSecret string, CA string, Key string, sandbox bool, timeout int) Requester {
+func newRequester(clientID string, clientSecret string, CA, Key []byte, sandbox bool, timeout int) Requester {
 	auth := newAuth(clientID, clientSecret, CA, Key, sandbox, timeout)
-	var cert, _ = tls.LoadX509KeyPair(CA, Key)
+	var cert, _ = tls.X509KeyPair(CA, Key)
 
 	var netTransport = &http.Transport{
 		TLSClientConfig: &tls.Config{
